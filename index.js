@@ -26,7 +26,8 @@ user_app.get('/', function(req, res){
 control_app.use('/timesync', timesyncServer.requestHandler);
 user_app.use('/timesync', timesyncServer.requestHandler);
 
-var ip = 'http://'+ myip.getLocalIP4() + ':1234';
+var getIP = myip.getLocalIP4();
+var ip = 'http://'+ getIP + ':3000';
 var cnt=0;
 // var readyCnt=0;
 
@@ -66,4 +67,4 @@ control_io.on('connection', function(socket){
 
 control_server.listen(1234);
 user_server.listen(3000);
-console.log('HTTP Servers listening on ports -\nController - *:1234\nUser - *:3000')
+console.log('HTTP Servers listening on ports -\nController - ' + getIP + ':1234\nUser - ' + getIP + ':3000')

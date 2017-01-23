@@ -1,7 +1,7 @@
 {
-  "name": "socket-chat-example",
+  "name": "RealSync",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "Synchronous Music Player",
   "dependencies": {
 	"express": "^4.14.0"
   }

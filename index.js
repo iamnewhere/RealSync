@@ -12,15 +12,15 @@ var user_app = express();
 var user_server = http.Server(user_app);
 var user_io = socket_io(user_server);
 
-control_app.use(express.static('/'));
-user_app.use(express.static('/'));
+control_app.use(express.static(__dirname + '/'));
+user_app.use(express.static(__dirname + '/'));
 
 control_app.get('/', function(req, res){
-	res.sendFile('/home/pineapple/hackfest/control.html');
+	res.sendFile(__dirname + '/control.html');
 });
 
 user_app.get('/', function(req, res){
-	res.sendFile('/home/pineapple/hackfest/index.html');
+	res.sendFile(__dirname + '/user.html');
 });
 
 control_app.use('/timesync', timesyncServer.requestHandler);
@@ -67,4 +67,4 @@ control_io.on('connection', function(socket){
 
 control_server.listen(1234);
 user_server.listen(3000);
-console.log('HTTP Servers listening on ports -\nController - ' + getIP + ':1234\nUser - ' + getIP + ':3000')
+console.log('HTTP Servers listening on -\nController - ' + getIP + ':1234\nUser - ' + getIP + ':3000')

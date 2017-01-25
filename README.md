@@ -21,10 +21,8 @@ Intructions -
 
 2. unzip the contents into home directory
 
-3. rectify the absolute resource addresses in index.js, index.html, control.html
+3. run the server using 'node index.js'
 
-4. run the server using 'node index.js'
+4. connect one device to controller ip shown
 
-5. connect one device to controller ip shown
-
-6. use the qr-code or given user ip to connect the client and enjoy!!
+5. use the qr-code or given user ip to connect the client and enjoy!!

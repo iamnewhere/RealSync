@@ -105,18 +105,18 @@
 	});
 
 	function init(msg){
-		current = 0;
-		var audio = $('#control');
-		var playlist = $('#playlist');
-		link=playlist.find('a')[msg];
-		run($(link),audio[0]);
+	    current = 0;
+	    var audio = $('#control');
+	    var playlist = $('#playlist');
+	    link=playlist.find('a')[msg];
+	    run($(link),audio[0]);
 	}
 	
 	function run(link, player){
-		player.src = link.attr('value');
-		par = link.parent();
-		par.addClass('active').siblings().removeClass('active');
-		player.load();
+        player.src = link.attr('value');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        player.load();
 	}
 
 	/*function emitReady(){
@@ -133,17 +133,17 @@
 		  <li class="active"><a href="#" value="resources/audio/Shape of You - Ed Sheeran [MP3 320kbps].mp3">Ed Sheeran - Shape Of You</a></li>
 		  <li><a href="#" value="resources/audio/The Strumbellas  - SPIRITS.mp3">Strumbellas - Spirits</a></li>	
 		  <li><a href="#" value="resources/audio/We Don_t Talk Anymore - Charlie Puth_ Se [MP3 320kbps].mp3" >We Don't Talk Anymore</a></li>
-		  <li><a href="#" value="resources/audio/Ride - Twenty One Pilots [MP3 320kbps].mp3" >Twenty One Pilots - Ride</a></li>
-		  <li><a href="#" value="resources/audio/Maroon 5 - One More Night (www.SongsLover.pk).mp3" >Maroon 5 - One More Night</a></li>
-		  <li><a href="#" value="resources/audio/Starboy - The Weeknd_ Daft Punk.mp3" >Starboy - The Weeknd Daft Punk</a></li>
-		  <li><a href="#" value="resources/audio/01 Counting Stars.mp3" >Counting Stars</a></li>
-		  <li><a href="#" value="resources/audio/Shakira feat. Wyclef - My Hips Don't Lie [mp3clan.com].mp3" >Hips Don't Lie</a></li>
-		  <li><a href="#" value="resources/audio/FRIENDS.mp3" >F.R.I.E.N.D.S</a></li>
+	      <li><a href="#" value="resources/audio/Ride - Twenty One Pilots [MP3 320kbps].mp3" >Twenty One Pilots - Ride</a></li>
+	      <li><a href="#" value="resources/audio/Maroon 5 - One More Night (www.SongsLover.pk).mp3" >Maroon 5 - One More Night</a></li>
+	      <li><a href="#" value="resources/audio/Starboy - The Weeknd_ Daft Punk.mp3" >Starboy - The Weeknd Daft Punk</a></li>
+	      <li><a href="#" value="resources/audio/01 Counting Stars.mp3" >Counting Stars</a></li>
+	      <li><a href="#" value="resources/audio/Shakira feat. Wyclef - My Hips Don't Lie [mp3clan.com].mp3" >Hips Don't Lie</a></li>
+	      <li><a href="#" value="resources/audio/FRIENDS.mp3" >F.R.I.E.N.D.S</a></li>
 	</ul>
 
 	<div id="group">
 		<div class="imgs">
-			<img src="resources/images/music-icon.png" height="600px" width="600px">
+			<img src="resources/images/music-icon.png" height="550px" width="550px">
 		</div>
 		
 		<div class="mains">

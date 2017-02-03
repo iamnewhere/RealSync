@@ -31,11 +31,14 @@ var ip = 'http://'+ getIP + ':3000';
 var cnt=0;
 // var readyCnt=0;
 
+setInterval(function(){
+	control_io.emit('user',cnt);
+},5000);
+
 user_io.on('connection',function(socket){
 	//console.log('hello');
-	cnt=cnt+1;
-	control_io.emit('user',cnt);
-
+	cnt+=1;
+	
 	/*socket.on('ready',function(){
 		control_io.emit('ready');
 	});*/
@@ -43,7 +46,6 @@ user_io.on('connection',function(socket){
 	socket.on('disconnect',function(){
 		// console.log('bye');
 		cnt-=1;
-		control_io.emit('user',cnt);
 	});
 });
 

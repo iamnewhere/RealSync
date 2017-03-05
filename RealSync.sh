@@ -1,1 +1,1 @@
-node server.js
+node $REALSYNC/server.js

@@ -51,10 +51,17 @@
 
 	$(function(){
 		socket=io();
+
 		var dt;
 		var ts = timesync.create({
 			server: '/timesync',
 			interval: 10000
+		});
+
+		socket.once('flist',function(flist){
+			list = flist
+			console.log('flist');
+			init_list();
 		});
 
 		socket.on('play',function(msg){
@@ -104,6 +111,22 @@
 
 	});
 
+	function init_list(){
+		// console.log('init_list');
+		var ul = document.getElementById('playlist');
+		$('#playlist').empty();
+		
+		var li = '<li><a href="#" value="'+list[0][1]+'">'+list[0][0]+'</a></li>';
+		// console.log(li);
+		$('#playlist').append(li);
+		
+		for(var i = 1 ; i < list.length ; i++){
+			li = '<li><a href="#" value="'+list[i][1]+'">'+list[i][0]+'</a></li>';
+			// console.log(li);
+			$('#playlist').append(li);
+		}
+	}
+
 	function init(msg){
 		current = 0;
 		var audio = $('#control');
@@ -130,6 +153,7 @@
 <body>
 
 	<ul id="playlist">
+		  <!--
 		  <li class="active"><a href="#" value="resources/audio/Shape of You - Ed Sheeran [MP3 320kbps].mp3">Ed Sheeran - Shape Of You</a></li>
 		  <li><a href="#" value="resources/audio/The Strumbellas  - SPIRITS.mp3">Strumbellas - Spirits</a></li>	
 		  <li><a href="#" value="resources/audio/We Don_t Talk Anymore - Charlie Puth_ Se [MP3 320kbps].mp3" >We Don't Talk Anymore</a></li>
@@ -139,6 +163,7 @@
 		  <li><a href="#" value="resources/audio/01 Counting Stars.mp3" >Counting Stars</a></li>
 		  <li><a href="#" value="resources/audio/Shakira feat. Wyclef - My Hips Don't Lie [mp3clan.com].mp3" >Hips Don't Lie</a></li>
 		  <li><a href="#" value="resources/audio/FRIENDS.mp3" >F.R.I.E.N.D.S</a></li>
+		  -->
 	</ul>
 
 	<div id="group">
@@ -147,7 +172,7 @@
 		</div>
 		
 		<div class="mains">
-			<audio id="control" src="resources/audio/FRIENDS.mp3" controls>
+			<audio id="control" src="" controls>
 			</audio>
 		</div>
 	</div>

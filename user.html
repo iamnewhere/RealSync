@@ -4,7 +4,7 @@
 	<title>
 		User
 	</title>
-
+	<link href="https://fonts.googleapis.com/css?family=Lemonada" rel="stylesheet">
 	<script type="text/javascript" src="local/es5-shim.min.js"></script>
 	<script type="text/javascript" src="local/es6-shim.min.js"></script>
 	<script type="text/javascript" src="local/jquery-3.1.1.min.js"></script>
@@ -17,9 +17,23 @@
 	body{
 		background:#1ABC9C;
 	}
+	#heads{
+		height: 50px;
+		background: #00796B;
+		margin-top: 0px;
+		z-index: 1;
+		text-align: center;
+		color: white;
+		padding: 10px;
+	}
+	#heads h3{
+		height: 20px;
+		margin-top:0px;
+		font-weight: bold;
+		font-family: 'Lemonada', cursive;
+	}
 	.imgs{
 		margin: auto;
-		top: -20px;
 		right: 0;
 		left: 0;
 		text-align: center;
@@ -152,6 +166,9 @@
 </head>
 <body>
 
+	<div id="heads">
+		<h3>RealSync</h3>
+	</div>
 	<ul id="playlist">
 		  <!--
 		  <li class="active"><a href="#" value="resources/audio/Shape of You - Ed Sheeran [MP3 320kbps].mp3">Ed Sheeran - Shape Of You</a></li>
@@ -168,7 +185,7 @@
 
 	<div id="group">
 		<div class="imgs">
-			<img src="resources/images/music-icon.png" height="550px" width="550px">
+			<img src="resources/images/music-icon.png" height="520px" width="520px">
 		</div>
 		
 		<div class="mains">

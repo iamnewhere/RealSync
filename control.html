@@ -4,7 +4,7 @@
 	<title>
 		Controller
 	</title>
-
+	<link href="https://fonts.googleapis.com/css?family=Lemonada" rel="stylesheet">
 	<script type="text/javascript" src="local/es5-shim.min.js"></script>
 	<script type="text/javascript" src="local/es6-shim.min.js"></script>
 	<script type="text/javascript" src="local/qrcode.js"></script>
@@ -16,6 +16,22 @@
 	<style type="text/css">
 	body{
 		background:#00838F;
+		padding-top: 0px;
+	}
+	#heads{
+		height: 50px;
+		background: #0097A7;
+		margin-top: 0px;
+		margin-bottom: -30px;
+		text-align: center;
+		color: white;
+		padding: 10px;
+	}
+	#heads h3{
+		height: 20px;
+		margin-top:0px;
+		font-weight: bold;
+		font-family: 'Lemonada', cursive;
 	}
 	.imgs{
 		padding-top: 20px;
@@ -218,7 +234,9 @@
 <body>
 
 	
-
+	<div id="heads">
+		<h3>RealSync</h3>
+	</div>
 	<div class="modal fade" id="myModal" onclick="hideModal()" onkeypress="hideModal()" role="dialog">
 		<div class="modal-dialog modal-lg">
 		

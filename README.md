@@ -14,7 +14,5 @@ To add your music files -
 
 1. Replace the resources/audio file with a symlink to the directory with your music files
 
-Example commands - 
-'rm resources/audio'
-'ln -s full_path resources/audio'
+Ex commands - 'ln -sf full_path resources/audio'
 (here full_path is the path to your music directory)

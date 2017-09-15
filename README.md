@@ -12,7 +12,7 @@ Intructions (execute the following in terminal)-
 
 To add your music files - 
 
-1. Replace the resources/audio file with a symlink to the directory with your music files
+1. Add/Replace the 'resources/audio' file with a symlink to the directory with your music files
 
 Ex commands - 'ln -sf full_path resources/audio'
 (here full_path is the path to your music directory)

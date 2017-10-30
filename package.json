@@ -1,8 +1,23 @@
 {
-  "name": "RealSync",
-  "version": "0.0.1",
-  "description": "Synchronous Music Player",
-  "dependencies": {
-	"express": "^4.14.0"
-  }
+  "name": "realsync",
+  "version": "1.0.0",
+  "description": "Realtime Synchronous Music Player",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamnewhere/RealSync.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Saurabh Kumar Jindwani",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/iamnewhere/RealSync/issues"
+  },
+  "homepage": "https://github.com/iamnewhere/RealSync#readme"
 }

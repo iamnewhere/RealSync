@@ -1,28 +1,18 @@
 # RealSync - Real-Time Synchronous Music Player
 
----------------------------------------------------------------------------
+Intructions (execute the following in terminal)- 
 
-Dependencies - 
+1. 'sudo chmod +x install.sh RealSync.sh'
 
-a) install nodejs
+2. 'sudo ./install.sh' (make sure your pc is connected to the internet)
 
-b) npm packages ->
-	
-	1. express
-	2. socket.io
-	3. timesync
-	4. quick-local-ip
+3. './RealSync' to run the player and enjoy!!
 
----------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
-Intructions - 
+To add your music files - 
 
-1. install the dependencies
+1. Add/Replace the 'resources/audio' file with a symlink to the directory with your music files
 
-2. unzip the contents into home directory
-
-3. run the server using 'node index.js'
-
-4. connect one device to controller ip shown
-
-5. use the qr-code or given user ip to connect the client and enjoy!!
+Ex commands - 'ln  -s  full_path  resources/audio'
+(here full_path is the path to your music directory)

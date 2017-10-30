@@ -4,7 +4,7 @@
 	<title>
 		Controller
 	</title>
-
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/gfont.css" >
 	<script type="text/javascript" src="local/es5-shim.min.js"></script>
 	<script type="text/javascript" src="local/es6-shim.min.js"></script>
 	<script type="text/javascript" src="local/qrcode.js"></script>
@@ -16,6 +16,22 @@
 	<style type="text/css">
 	body{
 		background:#00838F;
+		padding-top: 0px;
+	}
+	#heads{
+		height: 50px;
+		background: #0097A7;
+		margin-top: 0px;
+		margin-bottom: -30px;
+		text-align: center;
+		color: white;
+		padding: 13px;
+	}
+	#heads h3{
+		height: 20px;
+		margin-top:0px;
+		font-weight: bold;
+		font-family: 'Lemonada', cursive;
 	}
 	.imgs{
 		padding-top: 20px;
@@ -91,20 +107,29 @@
 	<script type="text/javascript">
 	
 	var socket,times,vals,ts,current;
+	list=[]
 
 	$(function(){
 		socket=io();
+
 		ts = timesync.create({
 			server: '/timesync',
 			interval: 10000
 		});
 
-		socket.on('ip',function(msg){
+		/*socket.on('ip',function(msg){
 			new QRCode(document.getElementById("qrCode"), msg);
-		});
+		});*/
 
 		socket.on('user',function(msg){
 			_modifyCnt(msg);
+		});
+
+		socket.once('flist',function(flist){
+			list = flist
+			console.log('flist');
+			init_list();
+			init();
 		});
 
 		/*socket.on('ready',function(msg){
@@ -135,14 +160,28 @@
 			}
 		},3000);
 
-		init();
-
 		// $('#myModal').modal('show');
 
 	});
 
 	function hideModal(){
 		$('#myModal').modal('hide');
+	}
+
+	function init_list(){
+		// console.log('init_list');
+		var ul = document.getElementById('playlist');
+		$('#playlist').empty();
+		
+		var li = '<li><a href="#" value="'+list[0][1]+'">'+list[0][0]+'</a></li>';
+		// console.log(li);
+		$('#playlist').append(li);
+		
+		for(var i = 1 ; i < list.length ; i++){
+			li = '<li><a href="#" value="'+list[i][1]+'">'+list[i][0]+'</a></li>';
+			// console.log(li);
+			$('#playlist').append(li);
+		}
 	}
 
 	function init(){
@@ -195,7 +234,9 @@
 <body>
 
 	
-
+	<div id="heads">
+		<h3>RealSync</h3>
+	</div>
 	<div class="modal fade" id="myModal" onclick="hideModal()" onkeypress="hideModal()" role="dialog">
 		<div class="modal-dialog modal-lg">
 		
@@ -217,6 +258,7 @@
 		<button id="expand" class="btn btn-success btn-large dropdown-toggle" type="button" data-toggle="dropdown">Select Music <span class="caret"></span>
 		</button>
 		<ul id="playlist" class="dropdown-menu">
+			  <!--
 			  <li class="active"><a href="#" value="resources/audio/Shape of You - Ed Sheeran [MP3 320kbps].mp3">Ed Sheeran - Shape Of You</a></li>
 			  <li><a href="#" value="resources/audio/The Strumbellas  - SPIRITS.mp3">Strumbellas - Spirits</a></li>	
 			  <li><a href="#" value="resources/audio/We Don_t Talk Anymore - Charlie Puth_ Se [MP3 320kbps].mp3" >We Don't Talk Anymore</a></li>
@@ -226,6 +268,7 @@
 			  <li><a href="#" value="resources/audio/01 Counting Stars.mp3" >Counting Stars</a></li>
 			  <li><a href="#" value="resources/audio/Shakira feat. Wyclef - My Hips Don't Lie [mp3clan.com].mp3" >Hips Don't Lie</a></li>
 			  <li><a href="#" value="resources/audio/FRIENDS.mp3" >F.R.I.E.N.D.S</a></li>
+			  -->
 		</ul>
 	</div>
 
@@ -235,11 +278,11 @@
 	</div>
 
 	<div class="imgs">
-		<img src="resources/images/casseete.png" height="450px" width="450px">
+		<img src="resources/images/casseete.png" height="400px" width="400px">
 	</div>
 
 	<div class="mains">
-	<audio id="control" src="resources/audio/FRIENDS.mp3" controls></audio>
+	<audio id="control" src="" controls muted></audio>
 	</div>
 
 </body>

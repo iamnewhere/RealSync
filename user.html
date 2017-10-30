@@ -4,7 +4,7 @@
 	<title>
 		User
 	</title>
-
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/gfont.css" >
 	<script type="text/javascript" src="local/es5-shim.min.js"></script>
 	<script type="text/javascript" src="local/es6-shim.min.js"></script>
 	<script type="text/javascript" src="local/jquery-3.1.1.min.js"></script>
@@ -17,9 +17,23 @@
 	body{
 		background:#1ABC9C;
 	}
+	#heads{
+		height: 50px;
+		background: #00796B;
+		margin-top: 0px;
+		z-index: 1;
+		text-align: center;
+		color: white;
+		padding: 13px;
+	}
+	#heads h3{
+		height: 20px;
+		margin-top:0px;
+		font-weight: bold;
+		font-family: 'Lemonada', cursive;
+	}
 	.imgs{
 		margin: auto;
-		top: -20px;
 		right: 0;
 		left: 0;
 		text-align: center;
@@ -51,10 +65,17 @@
 
 	$(function(){
 		socket=io();
+
 		var dt;
 		var ts = timesync.create({
 			server: '/timesync',
 			interval: 10000
+		});
+
+		socket.once('flist',function(flist){
+			list = flist
+			console.log('flist');
+			init_list();
 		});
 
 		socket.on('play',function(msg){
@@ -104,6 +125,22 @@
 
 	});
 
+	function init_list(){
+		// console.log('init_list');
+		var ul = document.getElementById('playlist');
+		$('#playlist').empty();
+		
+		var li = '<li><a href="#" value="'+list[0][1]+'">'+list[0][0]+'</a></li>';
+		// console.log(li);
+		$('#playlist').append(li);
+		
+		for(var i = 1 ; i < list.length ; i++){
+			li = '<li><a href="#" value="'+list[i][1]+'">'+list[i][0]+'</a></li>';
+			// console.log(li);
+			$('#playlist').append(li);
+		}
+	}
+
 	function init(msg){
 		current = 0;
 		var audio = $('#control');
@@ -129,7 +166,11 @@
 </head>
 <body>
 
+	<div id="heads">
+		<h3>RealSync</h3>
+	</div>
 	<ul id="playlist">
+		  <!--
 		  <li class="active"><a href="#" value="resources/audio/Shape of You - Ed Sheeran [MP3 320kbps].mp3">Ed Sheeran - Shape Of You</a></li>
 		  <li><a href="#" value="resources/audio/The Strumbellas  - SPIRITS.mp3">Strumbellas - Spirits</a></li>	
 		  <li><a href="#" value="resources/audio/We Don_t Talk Anymore - Charlie Puth_ Se [MP3 320kbps].mp3" >We Don't Talk Anymore</a></li>
@@ -139,15 +180,16 @@
 		  <li><a href="#" value="resources/audio/01 Counting Stars.mp3" >Counting Stars</a></li>
 		  <li><a href="#" value="resources/audio/Shakira feat. Wyclef - My Hips Don't Lie [mp3clan.com].mp3" >Hips Don't Lie</a></li>
 		  <li><a href="#" value="resources/audio/FRIENDS.mp3" >F.R.I.E.N.D.S</a></li>
+		  -->
 	</ul>
 
 	<div id="group">
 		<div class="imgs">
-			<img src="resources/images/music-icon.png" height="600px" width="600px">
+			<img src="resources/images/music-icon.png" height="520px" width="520px">
 		</div>
 		
 		<div class="mains">
-			<audio id="control" src="resources/audio/FRIENDS.mp3" controls>
+			<audio id="control" src="" controls>
 			</audio>
 		</div>
 	</div>
